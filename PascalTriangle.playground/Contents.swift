@@ -22,6 +22,10 @@ func pascalTriangle(row: Int) -> Array<Array<Int>> {
     
     var data = Array<Array<Int>>()
     
+    if row <= 0 {
+        return data
+    }
+    
     for var i = 0 ; i < row ; i++ {
         
         var array = [Int]()
@@ -51,4 +55,19 @@ func pascalTriangle(row: Int) -> Array<Array<Int>> {
     return data
 }
 
+/*
+Given an index k, return the kth row of the Pascal's triangle.
+
+For example, given k = 3,
+Return [1,3,3,1].
+
+Note:
+Could you optimize your algorithm to use only O(k) extra space?
+*/
+
+func pascalRow(rowNumber:Int) -> Array<Int> {
+    return pascalTriangle(rowNumber+1).last!
+}
+
 println("\(pascalTriangle(6))")
+println("\(pascalRow(3))")
